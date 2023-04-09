@@ -10,7 +10,7 @@ namespace versek
 
         public List<Vers> Execute()
         {
-            if (string.IsNullOrEmpty(VersReszlet.Trim()))
+            if (string.IsNullOrWhiteSpace(VersReszlet.Trim()))
             {
                 return new List<Vers>();
             }
