@@ -1,0 +1,48 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:local="clr-namespace:versek.ViewModels"
+             x:Class="versek.MainPage">
+
+    <ContentPage.BindingContext>
+        <local:MainPageViewModel/>
+
+    </ContentPage.BindingContext>
+
+    <Grid BackgroundColor="#121212">
+        <Grid.RowDefinitions>
+            <RowDefinition Height=".15*"/>
+            <RowDefinition Height=".4*"/>
+            <RowDefinition Height=".1*"/>
+            <RowDefinition Height=".1*"/>
+            <RowDefinition Height=".1*"/>
+            <RowDefinition Height=".1*"/>
+            <RowDefinition Height=".1*"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width=".5*"/>
+            <ColumnDefinition Width=".9*"/>
+        </Grid.ColumnDefinitions>
+
+        <Label Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2" TextColor="#ac82d5" Text="Verskereső" FontSize="Title" HorizontalTextAlignment="Center" VerticalTextAlignment="Center" FontAttributes="Bold"/>
+        <Editor BackgroundColor="#24172f" Grid.Column="0" Grid.ColumnSpan="2" Grid.Row="1" PlaceholderColor="#78628d" Placeholder="Eddig Itália földjén" Margin="10,10" TextColor="#ac82d5" Text="{Binding VersReszlet}" />
+
+        <Button BackgroundColor="#24172f" Grid.Row="2" Grid.Column="0" Grid.ColumnSpan="2" Margin="10,10" TextColor="#ac82d5" Command="{Binding Check}" Text="Vers keresése"></Button>
+
+        <Label Grid.Row="3" Grid.Column="0" Grid.ColumnSpan="2" TextColor="#78628d" Text="{Binding BaseErrorText}" IsVisible="{Binding BaseDataErrorState}" FontSize="Subtitle" FontAttributes="Bold"/>
+        
+        <Label Grid.Row="3" Grid.Column="0" Grid.ColumnSpan="1" TextColor="#78628d" Text="Vers címe:" IsVisible="{Binding BaseDataState}" FontSize="Subtitle" FontAttributes="Bold"/>
+        <Label Grid.Row="3" Grid.Column="1" Grid.ColumnSpan="1" TextColor="#ac82d5" Text="{Binding VersNev}" IsVisible="{Binding BaseDataState}" FontSize="Subtitle"/>
+        
+        <Label Grid.Row="4" Grid.Column="0" Grid.ColumnSpan="1" TextColor="#78628d" Text="Vers költője:" IsVisible="{Binding BaseDataState}" FontSize="Subtitle" FontAttributes="Bold"/>
+        <Label Grid.Row="4" Grid.Column="1" Grid.ColumnSpan="1" TextColor="#ac82d5" Text="{Binding KoltoNev}" IsVisible="{Binding BaseDataState}" FontSize="Subtitle"/>
+        
+        <Label Grid.Row="5" Grid.Column="0" Grid.ColumnSpan="1" TextColor="#78628d" Text="Vers alternatív címe:" IsVisible="{Binding AlternativeDataState}" FontSize="Subtitle" FontAttributes="Bold"/>
+        <Label Grid.Row="5" Grid.Column="1" Grid.ColumnSpan="1" TextColor="#ac82d5" Text="{Binding AlternativCim}" IsVisible="{Binding AlternativeDataState}" FontSize="Subtitle"/>
+        
+        <Label Grid.Row="6" Grid.Column="0" Grid.ColumnSpan="2" TextColor="#78628d" Text="{Binding ForditasDataErrorText}" IsVisible="{Binding ForditasDataErrorState}" FontSize="Subtitle" FontAttributes="Bold"/>
+        <Label Grid.Row="6" Grid.Column="0" Grid.ColumnSpan="1" TextColor="#78628d" Text="Verset fordította:" IsVisible="{Binding ForditasDataState}" FontSize="Subtitle" FontAttributes="Bold"/>
+        <Label Grid.Row="6" Grid.Column="1" Grid.ColumnSpan="1" TextColor="#ac82d5" Text="{Binding ForditoNeve}" IsVisible="{Binding ForditasDataState}" FontSize="Subtitle"/>
+    </Grid>
+
+</ContentPage>
