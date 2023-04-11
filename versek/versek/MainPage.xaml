@@ -18,6 +18,8 @@
             <RowDefinition Height=".1*"/>
             <RowDefinition Height=".1*"/>
             <RowDefinition Height=".1*"/>
+            <RowDefinition Height=".05*"/>
+            <RowDefinition Height=".1*"/>
         </Grid.RowDefinitions>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width=".5*"/>
@@ -25,9 +27,11 @@
         </Grid.ColumnDefinitions>
 
         <Label Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2" TextColor="#ac82d5" Text="Verskereső" FontSize="Title" HorizontalTextAlignment="Center" VerticalTextAlignment="Center" FontAttributes="Bold"/>
-        <Editor BackgroundColor="#24172f" Grid.Column="0" Grid.ColumnSpan="2" Grid.Row="1" PlaceholderColor="#78628d" Placeholder="Eddig Itália földjén" Margin="10,10" TextColor="#ac82d5" Text="{Binding VersReszlet}" />
+        <Editor BackgroundColor="#24172f" IsVisible="{Binding VersReszletState}" Grid.Column="0" Grid.ColumnSpan="2" Grid.Row="1" PlaceholderColor="#78628d" Placeholder="Eddig Itália földjén" Margin="10,10" TextColor="#ac82d5" Text="{Binding VersReszlet}" />
+        <Label Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="2" TextColor="#ac82d5" Text="{Binding VersText}" IsVisible="{Binding VersTextState}" FontSize="Subtitle"/>
 
-        <Button BackgroundColor="#24172f" Grid.Row="2" Grid.Column="0" Grid.ColumnSpan="2" Margin="10,10" TextColor="#ac82d5" Command="{Binding Check}" Text="Vers keresése"></Button>
+        <Button BackgroundColor="#24172f" Grid.Row="2" Grid.Column="0" Grid.ColumnSpan="2" Margin="10,10" TextColor="#ac82d5" Command="{Binding Check}" IsVisible="{Binding VersReszletState}" Text="Vers keresése"></Button>
+        <Button BackgroundColor="#24172f" Grid.Row="2" Grid.Column="0" Grid.ColumnSpan="2" Margin="10,10" TextColor="#ac82d5" Command="{Binding Reset}" IsVisible="{Binding VersTextState}" Text="Alaphelyzetbe állítás"></Button>
 
         <Label Grid.Row="3" Grid.Column="0" Grid.ColumnSpan="2" TextColor="#78628d" Text="{Binding BaseErrorText}" IsVisible="{Binding BaseDataErrorState}" FontSize="Subtitle" FontAttributes="Bold"/>
         
@@ -43,6 +47,7 @@
         <Label Grid.Row="6" Grid.Column="0" Grid.ColumnSpan="2" TextColor="#78628d" Text="{Binding ForditasDataErrorText}" IsVisible="{Binding ForditasDataErrorState}" FontSize="Subtitle" FontAttributes="Bold"/>
         <Label Grid.Row="6" Grid.Column="0" Grid.ColumnSpan="1" TextColor="#78628d" Text="Verset fordította:" IsVisible="{Binding ForditasDataState}" FontSize="Subtitle" FontAttributes="Bold"/>
         <Label Grid.Row="6" Grid.Column="1" Grid.ColumnSpan="1" TextColor="#ac82d5" Text="{Binding ForditoNeve}" IsVisible="{Binding ForditasDataState}" FontSize="Subtitle"/>
+
     </Grid>
 
 </ContentPage>

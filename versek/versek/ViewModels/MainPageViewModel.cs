@@ -32,6 +32,10 @@ namespace versek.ViewModels
                         VersNev = neededVers.MuNev;
                         KoltoNev = neededVers.Kolto;
 
+                        VersReszletState = false;
+                        VersTextState = true;
+                        VersText = $"A vers szövege:{System.Environment.NewLine}{System.Environment.NewLine}{neededVers.VersSzoveg.Replace(". ", $".{System.Environment.NewLine}")}";
+
                         if (neededVers.IsForditas)
                         {
                             AlternativCim = neededVers.AlternativMuNev;
@@ -39,6 +43,8 @@ namespace versek.ViewModels
 
                             if (versek.Count > 1)
                             {
+                                VersReszletState = true;
+                                VersTextState = false;
                                 ForditasDataErrorState = true;
                                 ForditasDataErrorText = "A fordítás azonban nem megállapítható ennyi információból!";
                             }
@@ -59,15 +65,22 @@ namespace versek.ViewModels
                     }
                 }
             });
+
+            Reset = new Command(() =>
+            {
+                HideEverything();
+            });
         }
 
         private void HideEverything()
         {
+            VersReszletState = true;
             BaseDataState = false;
             BaseDataErrorState = false;
             AlternativeDataState = false;
             ForditasDataErrorState = false;
             ForditasDataState = false;
+            VersTextState = false;
         }
 
         //Vers részlete
@@ -76,6 +89,16 @@ namespace versek.ViewModels
         {
             get => versReszlet;
             set { versReszlet = value; OnPropertyChanged(nameof(VersReszlet)); }
+        }
+        //
+
+
+        //Vers részlete
+        bool versReszletState = true;
+        public bool VersReszletState
+        {
+            get => versReszletState;
+            set { versReszletState = value; OnPropertyChanged(nameof(VersReszletState)); }
         }
         //
 
@@ -140,6 +163,26 @@ namespace versek.ViewModels
 
 
         //Mezők megjelenésének állapota
+        private string versText;
+        public string VersText
+        {
+            get { return versText; }
+            set { versText = value; OnPropertyChanged(nameof(VersText)); }
+        }
+        //
+
+
+        //Mezők megjelenésének állapota
+        private bool versTextState;
+        public bool VersTextState
+        {
+            get { return versTextState; }
+            set { versTextState = value; OnPropertyChanged(nameof(VersTextState)); }
+        }
+        //
+
+
+        //Mezők megjelenésének állapota
         private bool _state;
         public bool BaseDataState
         {
@@ -191,6 +234,11 @@ namespace versek.ViewModels
 
         //Check
         public Command Check { get; set; }
+        //
+
+
+        //Reset
+        public Command Reset { get; set; }
         //
 
 
