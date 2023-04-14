@@ -11,17 +11,21 @@ namespace versek.ViewModels
         {
             Check = new Command(() =>
             {
+                if (string.IsNullOrWhiteSpace(VersReszlet))
+                {
+                    ThrowHandledError();
+                }
+
                 HideEverything();
                 var versek = new VersFinder
                 {
+                    WithoutVowels = AreVowelsEnabled == false,
                     VersReszlet = VersReszlet
                 }.Execute();
 
                 if (versek.Count < 1)
                 {
-                    BaseErrorText = "A megadott részletekkel nem található vers!";
-                    BaseDataErrorState = true;
-                    return;
+                    ThrowHandledError();
                 }
                 else
                 {
@@ -70,6 +74,21 @@ namespace versek.ViewModels
             {
                 HideEverything();
             });
+
+            ToggleVowel = new Command(() =>
+            {
+                AreVowelsEnabled = !AreVowelsEnabled;
+                var buttonBaseText = "Ékezetek:";
+                ToggleButtonText = AreVowelsEnabled ? $"{buttonBaseText} BE" : $"{buttonBaseText} KI";
+                ToggleButtonColorCode = AreVowelsEnabled ? "#50C878" : "#DC143C";
+            });
+        }
+
+        private void ThrowHandledError()
+        {
+            BaseErrorText = "A megadott részletekkel nem található vers!";
+            BaseDataErrorState = true;
+            return;
         }
 
         private void HideEverything()
@@ -139,6 +158,26 @@ namespace versek.ViewModels
         {
             get => koltoNev;
             set { koltoNev = value; OnPropertyChanged(nameof(KoltoNev)); }
+        }
+        //
+
+
+        //Költő neve
+        string toggleButtonText;
+        public string ToggleButtonText
+        {
+            get => toggleButtonText;
+            set { toggleButtonText = value; OnPropertyChanged(nameof(ToggleButtonText)); }
+        }
+        //
+
+
+        //Költő neve
+        string toggleButtonColorCode;
+        public string ToggleButtonColorCode
+        {
+            get => toggleButtonColorCode;
+            set { toggleButtonColorCode = value; OnPropertyChanged(nameof(ToggleButtonColorCode)); }
         }
         //
 
@@ -232,6 +271,16 @@ namespace versek.ViewModels
         //
 
 
+        //Mezők megjelenésének állapota
+        private bool areVowelsEnabled;
+        public bool AreVowelsEnabled
+        {
+            get { return areVowelsEnabled; }
+            set { areVowelsEnabled = value; OnPropertyChanged(nameof(AreVowelsEnabled)); }
+        }
+        //
+
+
         //Check
         public Command Check { get; set; }
         //
@@ -239,6 +288,8 @@ namespace versek.ViewModels
 
         //Reset
         public Command Reset { get; set; }
+
+        public Command ToggleVowel { get; set; }
         //
 
 

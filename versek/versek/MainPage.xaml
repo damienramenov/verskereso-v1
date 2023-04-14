@@ -48,6 +48,7 @@
         <Label Grid.Row="6" Grid.Column="0" Grid.ColumnSpan="1" TextColor="#78628d" Text="Verset fordította:" IsVisible="{Binding ForditasDataState}" FontSize="Subtitle" FontAttributes="Bold"/>
         <Label Grid.Row="6" Grid.Column="1" Grid.ColumnSpan="1" TextColor="#ac82d5" Text="{Binding ForditoNeve}" IsVisible="{Binding ForditasDataState}" FontSize="Subtitle"/>
 
+        <Button TextColor="{Binding ToggleButtonColorCode}" Grid.Row="2" Grid.Column="0" Grid.ColumnSpan="2" Margin="10,10" Command="{Binding ToggleVowel}" IsVisible="{Binding VersTextState}" Text="{Binding ToggleButtonText}"></Button>
     </Grid>
 
 </ContentPage>
