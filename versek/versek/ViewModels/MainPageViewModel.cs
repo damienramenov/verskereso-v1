@@ -1,5 +1,6 @@
 ﻿using System.ComponentModel;
 using System.Linq;
+using System.Reflection;
 using versek.Resources;
 using Xamarin.Forms;
 
@@ -7,8 +8,19 @@ namespace versek.ViewModels
 {
     public class MainPageViewModel : INotifyPropertyChanged
     {
+        private readonly string VowelBaseText = "Ékezetek:";
+        private readonly string DefaultTitleText = "Verskereső";
+
         public MainPageViewModel()
         {
+            VersReszletState = true;
+            VersReszlet = string.Empty;
+            TitleText = DefaultTitleText;
+
+            AreVowelsEnabled = true;
+            ToggleButtonColorCode = AreVowelsEnabled ? "#50C878" : "#DC143C";
+            ToggleButtonText = AreVowelsEnabled ? $"{VowelBaseText} BE" : $"{VowelBaseText} KI";
+
             Check = new Command(() =>
             {
                 if (string.IsNullOrWhiteSpace(VersReszlet))
@@ -33,12 +45,13 @@ namespace versek.ViewModels
 
                     if (versek.Count == 1 || versek.Where(v => v.IsForditas == true).Count() == versek.Count)
                     {
+                        TitleText = "A vers szövege:";
                         VersNev = neededVers.MuNev;
                         KoltoNev = neededVers.Kolto;
 
                         VersReszletState = false;
                         VersTextState = true;
-                        VersText = $"A vers szövege:{System.Environment.NewLine}{System.Environment.NewLine}{neededVers.VersSzoveg.Replace(". ", $".{System.Environment.NewLine}")}";
+                        VersText = $"{neededVers.VersSzoveg}";
 
                         if (neededVers.IsForditas)
                         {
@@ -50,7 +63,7 @@ namespace versek.ViewModels
                                 VersReszletState = true;
                                 VersTextState = false;
                                 ForditasDataErrorState = true;
-                                ForditasDataErrorText = "A fordítás azonban nem megállapítható ennyi információból!";
+                                ForditasDataErrorText = "A fordító neve nem megállapítható!";
                             }
                             else
                             {
@@ -63,9 +76,8 @@ namespace versek.ViewModels
                     }
                     else
                     {
-                        BaseErrorText = "A rendelkezésre álló információból nem lehetett megállapítani a vers címét! Próbálkozz újra!";
+                        BaseErrorText = "Nem lehetett megállapítani a vers címét!";
                         BaseDataErrorState = true;
-
                     }
                 }
             });
@@ -74,13 +86,12 @@ namespace versek.ViewModels
             {
                 HideEverything();
             });
-
+            
             ToggleVowel = new Command(() =>
             {
-                AreVowelsEnabled = !AreVowelsEnabled;
-                var buttonBaseText = "Ékezetek:";
-                ToggleButtonText = AreVowelsEnabled ? $"{buttonBaseText} BE" : $"{buttonBaseText} KI";
+                AreVowelsEnabled = AreVowelsEnabled == true ? false : true;
                 ToggleButtonColorCode = AreVowelsEnabled ? "#50C878" : "#DC143C";
+                ToggleButtonText = AreVowelsEnabled ? $"{VowelBaseText} BE" : $"{VowelBaseText} KI";
             });
         }
 
@@ -93,6 +104,7 @@ namespace versek.ViewModels
 
         private void HideEverything()
         {
+            TitleText = DefaultTitleText;
             VersReszletState = true;
             BaseDataState = false;
             BaseDataErrorState = false;
@@ -113,7 +125,7 @@ namespace versek.ViewModels
 
 
         //Vers részlete
-        bool versReszletState = true;
+        bool versReszletState;
         public bool VersReszletState
         {
             get => versReszletState;
@@ -128,6 +140,16 @@ namespace versek.ViewModels
         {
             get => versNev;
             set { versNev = value; OnPropertyChanged(nameof(VersNev)); }
+        }
+        //
+
+
+        //Vers neve
+        string titleText;
+        public string TitleText
+        {
+            get => titleText;
+            set { titleText = value; OnPropertyChanged(nameof(TitleText)); }
         }
         //
 

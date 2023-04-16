@@ -39,6 +39,8 @@ namespace versek
                 wordsOfReszlet = GetWordsWithoutVowelsFromStringArray(wordsOfReszlet);
             }
 
+            var tmp = wordsOfReszlet;
+
             foreach (var vers in Versek.VersLista)
             {
                 var wordsOfVersSzoveg = GetWordArrayFromString(vers.VersSzoveg);
@@ -46,6 +48,7 @@ namespace versek
                 {
                     wordsOfVersSzoveg = GetWordsWithoutVowelsFromStringArray(wordsOfVersSzoveg);
                 }
+                tmp = wordsOfVersSzoveg; 
                 var matches = CountMatchesInVersSzoveg(wordsOfReszlet, wordsOfVersSzoveg);
 
                 var versAndCount = new KeyValuePair<Vers, int> (vers, matches);
@@ -58,7 +61,7 @@ namespace versek
             return versekWithMostCounts;
         }
 
-        private int CountMatchesInVersSzoveg(string[] reszletek, string[] versSzoveg)
+        private int CountMatchesInVersSzoveg(List<string> reszletek, List<string> versSzoveg)
         {
             var matches = 0;
             foreach (var reszlet in reszletek)
@@ -76,24 +79,21 @@ namespace versek
             return matches;
         }
 
-        private string[] GetWordArrayFromString(string szoveg) => szoveg.Trim().Replace(".", string.Empty).Replace(",", string.Empty).Split(' ').Select(w => w.ToLower()).ToArray();
+        private List<string> GetWordArrayFromString(string szoveg) => szoveg.Trim().Replace(".", string.Empty).Replace(",", string.Empty).Replace($"{Environment.NewLine}", string.Empty).Split(' ').Select(w => w.ToLower()).ToList();
 
-        private string[] GetWordsWithoutVowelsFromStringArray(string[] gotArray)
+        private List<string> GetWordsWithoutVowelsFromStringArray(List<string> listOfString)
         {
-            var length = gotArray.Length;
-            var newArray = new string[length];
+            var newList = new List<string>();
 
-            gotArray.CopyTo(newArray, length);
-
-            foreach (var word in newArray)
+            foreach (var word in listOfString)
             {
                 foreach (var vowel in Vowels)
                 {
-                    word.Replace(vowel.Key, vowel.Value);
+                    newList.Add(word.Replace(vowel.Key, vowel.Value));
                 }
             }
 
-            return newArray;
+            return newList;
         }
     }
 }
