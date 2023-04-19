@@ -92,6 +92,42 @@ namespace versek.Resources
                 Kolto = "Berzsenyi Dániel",
                 MuNev = "A közelítő tél",
                 VersSzoveg = $"Hervad már ligetünk, s díszei hullanak. Tarlott bokrai közt sárga levél zörög. Nincs rózsás labyrinth, s balzsamos illatok Közt nem lengedez a Zephyr. {Environment.NewLine}{Environment.NewLine} Nincs már symphonia, s zöld lugasok között Nem búg gerlice, és a füzes ernyein A csermely violás völgye nem illatoz, S tükrét durva csalét fedi. {Environment.NewLine}{Environment.NewLine} A hegy boltozatin néma homály borong. Bíbor thyrsusain nem mosolyog gerezd. Itt nemrég az öröm víg dala harsogott: S most minden szomorú s kiholt. {Environment.NewLine}{Environment.NewLine} Oh, a szárnyas idő hirtelen elrepül, S minden míve tünő szárnya körül lebeg! Minden csak jelenés; minden az ég alatt, Mint a kis nefelejcs, enyész. {Environment.NewLine}{Environment.NewLine} Lassankén koszorúm bimbaja elvirít, Itt hágy szép tavaszom: még alig ízleli Nektárját ajakam, még alig illetem Egy-két zsenge virágait. {Environment.NewLine}{Environment.NewLine} Itt hágy s vissza se tér majd gyönyörű korom. Nem hozhatja fel azt több kikelet soha! Sem béhúnyt szememet fel nem igézheti Lollim barna szemöldöke!"
+            },
+            new Vers
+            {
+                Kolto = "Homérosz",
+                MuNev = "Odüsszeia",
+                AlternativMuNev = "(1. versszak részlete)",
+                VersSzoveg = $"Férfiuról szólj nékem, Múzsa, ki sokfele bolygott{Environment.NewLine}s hosszan hányódott, földúlván szentfalu Tróját,{Environment.NewLine}sok nép városait, s eszejárását kitanulta,{Environment.NewLine}s tengeren is sok erős gyötrelmet tűrt a szivében,{Environment.NewLine}menteni vágyva saját lelkét, társak hazatértét."
+            },
+            new Vers
+            {
+                Kolto = "fasz se tudja",
+                MuNev = "Halotti beszéd és könyörgés",
+                AlternativMuNev = "(részlet)",
+                VersSzoveg = "Látjátuk feleim szümtükhel,\r\nmik vogymuk: isá, por ës homou\r\nvogymuk. Mënyi milosztben\r\nterömtevé elevé miü isëmüköt\r\nÁdámot, ës adutta valá neki\r\nparaadicsumot házoá. "
+            },
+            new Vers
+            {
+                Kolto = "fasz se tudja",
+                MuNev = "Ómagyar Mária-siralom",
+                AlternativMuNev = "(részlet)",
+                ForditoNeve = "Pais Dezső",
+                VersSzoveg = $"Volek sirolm tudotion. Sirolmol sepedek, búol oszuk, epedek,{Environment.NewLine}{Environment.NewLine}Választ világumtul, zsidou fiodumtul, ézes ürümemtűl.{Environment.NewLine}{Environment.NewLine}Ó én ézes urodum, eggyen-egy fiodum, sírou anyát teküncsed, buabeleül kinyuhhad!{Environment.NewLine}{Environment.NewLine}Szemem künyüel árad, junhum búol fárad. Te vérüd hullottya en junhum olélottya. (...) Világ világa, virágnak virága, keserüen kinzatul, vos szegekkel veretül!"
+            },
+            new Vers
+            {
+                Kolto = "Balassi Bálint",
+                MuNev = "Adj már csendességet...",
+                AlternativMuNev = "(részlet)",
+                VersSzoveg = $"Adj már csendességet, lelki békességet, mennybéli Úr!{Environment.NewLine}Bujdosó elmémet ódd bútól szívemet, kit sok kín fúr!{Environment.NewLine}{Environment.NewLine}Sok ideje immár, hogy lelkem szomjan vár mentségére,{Environment.NewLine}Őrizd, ne hadd, ébreszd, haragod ne gerjeszd vesztségére!{Environment.NewLine}{Environment.NewLine}Nem kicsiny munkával, fiad halálával váltottál meg,{Environment.NewLine}Kinek érdeméért most is szükségemet teljesíts meg!"
+            },
+            new Vers
+            {
+                Kolto = "Berzsenyi Dániel",
+                MuNev = "Osztályrészem",
+                AlternativMuNev = "(részlet)",
+                VersSzoveg = $"Partra szállottam. Levonom vitorlám.{Environment.NewLine}A szelek mérgét nemesen kiálltam.{Environment.NewLine}Sok Charybdis közt, sok ezer veszélyben{Environment.NewLine}Izzada orcám.{Environment.NewLine}(...)"
             }
         };
     }

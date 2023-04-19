@@ -45,6 +45,7 @@ namespace versek.ViewModels
 
                     if (versek.Count == 1 || versek.Where(v => v.IsForditas == true).Count() == versek.Count)
                     {
+                        VersReszlet = "";
                         TitleText = "A vers szövege:";
                         VersNev = neededVers.MuNev;
                         KoltoNev = neededVers.Kolto;
