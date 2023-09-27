@@ -7,7 +7,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "versek.Android", "versek\ve
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "versek.iOS", "versek\versek.iOS\versek.iOS.csproj", "{4AD3B122-3A03-4326-9AC2-ED775E758723}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "versek", "versek\versek\versek.csproj", "{42EF6FC3-05EB-4641-86A3-52875497623C}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "versek", "versek\versek\versek.csproj", "{42EF6FC3-05EB-4641-86A3-52875497623C}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -47,7 +47,6 @@ Global
 		{4AD3B122-3A03-4326-9AC2-ED775E758723}.Debug|iPhoneSimulator.Build.0 = Debug|iPhoneSimulator
 		{4AD3B122-3A03-4326-9AC2-ED775E758723}.Debug|iPhoneSimulator.Deploy.0 = Debug|iPhoneSimulator
 		{4AD3B122-3A03-4326-9AC2-ED775E758723}.Release|Any CPU.ActiveCfg = Release|iPhoneSimulator
-		{4AD3B122-3A03-4326-9AC2-ED775E758723}.Release|Any CPU.Build.0 = Release|iPhoneSimulator
 		{4AD3B122-3A03-4326-9AC2-ED775E758723}.Release|Any CPU.Deploy.0 = Release|iPhoneSimulator
 		{4AD3B122-3A03-4326-9AC2-ED775E758723}.Release|iPhone.ActiveCfg = Release|iPhone
 		{4AD3B122-3A03-4326-9AC2-ED775E758723}.Release|iPhone.Build.0 = Release|iPhone

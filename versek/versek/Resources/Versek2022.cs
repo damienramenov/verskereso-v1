@@ -3,7 +3,7 @@ using System.Collections.Generic;
 
 namespace versek.Resources
 {
-    public class Versek
+    public class Versek2022
     {
         public static List<Vers> VersLista = new List<Vers>
         {

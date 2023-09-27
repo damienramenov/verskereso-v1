@@ -2,7 +2,6 @@
 using System.Collections.Generic;
 using System.Linq;
 using versek.Resources;
-using Xamarin.Forms.Internals;
 
 namespace versek
 {
@@ -31,7 +30,7 @@ namespace versek
                 return new List<Vers>();
             }
 
-            var versekWithVersReszletTitle = Versek.VersLista.Where(v => v.MuNev == VersReszlet.Trim() || v.AlternativMuNev == VersReszlet.Trim());
+            var versekWithVersReszletTitle = Versek2023.VersLista.Where(v => v.MuNev == VersReszlet.Trim() || v.AlternativMuNev == VersReszlet.Trim());
             if (versekWithVersReszletTitle.Any())
             {
                 var versek = new List<Vers>();
@@ -50,17 +49,17 @@ namespace versek
 
             var tmp = wordsOfReszlet;
 
-            foreach (var vers in Versek.VersLista)
+            foreach (var vers in Versek2023.VersLista)
             {
                 var wordsOfVersSzoveg = GetWordArrayFromString(vers.VersSzoveg);
                 if (WithoutVowels)
                 {
                     wordsOfVersSzoveg = GetWordsWithoutVowelsFromStringArray(wordsOfVersSzoveg);
                 }
-                tmp = wordsOfVersSzoveg; 
+                tmp = wordsOfVersSzoveg;
                 var matches = CountMatchesInVersSzoveg(wordsOfReszlet, wordsOfVersSzoveg);
 
-                var versAndCount = new KeyValuePair<Vers, int> (vers, matches);
+                var versAndCount = new KeyValuePair<Vers, int>(vers, matches);
 
                 count.Add(versAndCount);
             }
